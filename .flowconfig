@@ -1,0 +1,14 @@
+ [ignore]
+node_modules/
+
+[include]
+**/*.js
+
+[libs]
+
+[lints]
+
+[options]
+include_warnings=false
+
+[strict]
