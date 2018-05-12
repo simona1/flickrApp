@@ -9,3 +9,10 @@ h1 {
   font-family: Courgette, Fantasy, Helvetica;
   font-size: 35px;
 }
+
+.footer {
+  text-align: center;
+  margin: auto;
+  color: #aaa;
+}
+
