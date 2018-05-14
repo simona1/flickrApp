@@ -1,38 +1,28 @@
 import React from 'react';
+import Photo from './Photo';
+import {fetchPhoto, FETCH_PHOTO_DATA} from './actions/index';
+import {connect} from 'react-redux';
 
-class PhotoList extends React.Component {
-  constructor() {
-    super();
-    this.state = {mounted: false};
-  }
+const PhotoList = ({photos}) => (
+  <div>
+    <ul>
+      {photos.map(photo => (
+        <Photo key={photo.date_taken + photo.title} photo={photo} />
+      ))}
+    </ul>
+  </div>
+);
 
-  componentDidMount() {
-    this.setState({mounted: true});
-  }
+const mapStateToProps = state => {
+  return {
+    photos: state.photos,
+  };
+};
 
-  render() {
-    var photos;
-    if (this.state.mounted) {
-      photos = this.props.data.map(function(photo) {
-        if (photo) {
-          let id = photo.id;
-          let source = `https://farm${photo.farm}.staticflickr.com/${
-            photo.server
-          }/${photo.id}_${photo.secret}.jpg`;
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchPhoto: keyword => dispatch(fetchPhoto(keyword)),
+  };
+};
 
-          let title = `${photo.title}`;
-
-          return (
-            <a href={source} key={id} target="_blank" className="imageBox">
-              <img src={source} alt={title} className="photoImage" />
-            </a>
-          );
-        }
-      });
-    }
-
-    return <div className="photoList">{photos}</div>;
-  }
-}
-
-export default PhotoList;
+export default connect(mapStateToProps, mapDispatchToProps)(PhotoList);

@@ -1,44 +1,56 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {fetchPhoto} from './actions/index';
+import {bindActionCreators} from 'redux';
 
 class SearchBox extends React.Component {
-  handleSubmit = event => {
+  constructor(props) {
+    super(props);
+    this.state = {keyword: ''};
+  }
+
+  _handleChange = event => {
+    this.setState({
+      keyword: event.target.value,
+    });
+  };
+
+  _handleSubmit = event => {
     event.preventDefault();
-    let apiKey = 'b382d1bb8509e51798bebde61aff5324';
-    let searchKeyword = this.refs.photoKeyword.value;
-    this.refs.photoKeyword.value = '';
-
-    let url = `https://api.flickr.com/services/rest/?api_key=${apiKey}&method=flickr.photos.search&format=json&nojsoncallback=1&&per_page=50&page=1&text=${searchKeyword}`;
-
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data.photos.photo);
-        this.props._getPhotos(data.photos.photo);
-      })
-      .catch(error => {
-        throw error;
-      });
+    const {keyword} = this.state;
+    this.props.fetchPhoto(keyword);
+    this.setState({keyword: ''});
   };
 
   render() {
+    const {keyword} = this.state;
     return (
-      <div className="">
-        <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this._handleSubmit}>
+        <div>
           <input
             type="text"
-            className="searchInput"
-            placeholder="type keyword here"
-            ref="photoKeyword"
-            required
-            autoFocus
+            style={{
+              borderColor: 'blue',
+              backgroundColor: 'white',
+              width: '500px',
+            }}
+            id="text"
+            value={keyword}
+            onChange={this._handleChange}
           />
-          <button type="submit" ref="button" className="searchButton">
-            Search on Flickr
+          <button type="submit" className="btn btn-lg blue">
+            search photos
           </button>
-        </form>
-      </div>
+        </div>
+      </form>
     );
   }
 }
 
-export default SearchBox;
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchPhoto: keyword => dispatch(fetchPhoto(keyword)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(SearchBox);

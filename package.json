@@ -2,6 +2,7 @@
   "name": "flicks",
   "version": "1.0.0",
   "dependencies": {
+    "axios": "0.18.0",
     "babel-core": "6.26.0",
     "babel-loader": "7.1.4",
     "babel-plugin-transform-class-properties": "6.24.1",
@@ -14,6 +15,7 @@
     "babel-register": "6.26.0",
     "chai": "4.1.2",
     "express": "4.16.2",
+    "fetch-jsonp": "^1.1.3",
     "jsdom": "11.7.0",
     "material-icons": "0.2.1",
     "materialize-css": "^1.0.0-beta",
