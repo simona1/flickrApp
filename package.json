@@ -1,8 +1,9 @@
 {
-  "name": "flicks",
+  "name": "flickr-app",
+  "description": "simple Flickr app",
+  "main": "src/server/main.js",
   "version": "1.0.0",
   "dependencies": {
-    "axios": "0.18.0",
     "babel-core": "6.26.0",
     "babel-loader": "7.1.4",
     "babel-plugin-transform-class-properties": "6.24.1",
@@ -39,6 +40,7 @@
     "format": "prettier --write 'src/**/*.js'",
     "lint": "eslint 'src/**/*.js'",
     "server": "node src/server/main.js",
+    "start": "node src/server/main.js",
     "test": "jest"
   },
   "jest": {

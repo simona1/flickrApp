@@ -11,7 +11,7 @@ app.get('/', function(req, res) {
   res.send('<!DOCTYPE html>' + markup);
 });
 
-app.get('/client.js', function(req, res) {
+app.get('/out.js', function(req, res) {
   fs.readFile('out.js', function(err, data) {
     if (err) {
       res.status(404).send('Not Found');

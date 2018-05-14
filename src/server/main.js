@@ -2,4 +2,6 @@ require('babel-register');
 
 const app = require('./app').default;
 
-app.listen(7700);
+let port = process.env.PORT || 7700;
+
+app.listen(port);

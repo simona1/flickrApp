@@ -17,6 +17,10 @@ class MainPage extends React.Component {
           />
 
           <meta
+            http-equiv="Content-Security-Policy"
+            content="upgrade-insecure-requests"
+          />
+          <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
@@ -29,17 +33,8 @@ class MainPage extends React.Component {
 
         <body>
           <div id="app">Loading...</div>
-          {/* <script
-            src={`https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(
-              GOOGLE_API_KEY,
-            )}&libraries=places`}
-          /> */}
-          {/* <script
-            src={`https://api.flickr.com/services/rest/?api_key=${apiKey}&method=flickr.photos.search&format=json&nojsoncallback=1&&per_page=50&page=1&text=${searchKeyword}`}
-          /> */}
-
           <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js" />
-          <script src="/client.js" />
+          <script src="/out.js" />
         </body>
       </html>
     );
