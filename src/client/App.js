@@ -3,8 +3,8 @@
 import Footer from './Footer';
 import Header from './Header';
 import PhotoSearch from './PhotoSearch';
-import React from 'react';
 import {Provider} from 'react-redux';
+import React from 'react';
 import Store from './Store';
 
 type Props = {};

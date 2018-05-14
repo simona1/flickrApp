@@ -29,6 +29,7 @@
     "redux-mock-store": "1.5.1",
     "redux-testkit": "1.0.6",
     "redux-thunk": "2.2.0",
+    "uuid": "^3.2.1",
     "webpack": "3.10.0"
   },
   "scripts": {

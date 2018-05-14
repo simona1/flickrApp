@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {fetchPhoto} from './actions/index';
-import {bindActionCreators} from 'redux';
 
 class SearchBox extends React.Component {
   constructor(props) {
@@ -29,16 +28,13 @@ class SearchBox extends React.Component {
         <div>
           <input
             type="text"
-            style={{
-              borderColor: 'blue',
-              backgroundColor: 'white',
-              width: '500px',
-            }}
+            className="inputBox"
             id="text"
+            placeholder="type tag here"
             value={keyword}
             onChange={this._handleChange}
           />
-          <button type="submit" className="btn btn-lg blue">
+          <button type="submit" className="btn btn-lg #4A9586">
             search photos
           </button>
         </div>

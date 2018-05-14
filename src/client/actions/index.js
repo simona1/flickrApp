@@ -1,13 +1,12 @@
-import axios from 'axios';
 import fetchJsonp from 'fetch-jsonp';
-
-const API_ROOT_URL =
-  'http://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=';
 
 const FETCH_PHOTO_DATA = 'FETCH_PHOTO_DATA';
 
+const FLICKR_URL =
+  'http://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=';
+
 export function fetchPhoto(keyword) {
-  const url = API_ROOT_URL + keyword;
+  const url = FLICKR_URL + keyword;
   return dispatch => {
     fetchJsonp(url, {
       jsonpCallback: 'jsoncallback',

@@ -1,5 +1,4 @@
 import React from 'react';
-import FLICKR from '../../api_key';
 
 class MainPage extends React.Component {
   render() {

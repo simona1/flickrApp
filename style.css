@@ -10,9 +10,51 @@ h1 {
   font-size: 35px;
 }
 
+img {
+  display: block;
+  max-width: 300px;
+  max-height: 300px;
+  width: auto;
+  height: auto;
+  padding: 5px;
+  align: center;
+}
+
+ul {
+	display: flex;
+	list-style: none;
+  flex-wrap: wrap;
+}
+
 .footer {
   text-align: center;
   margin: auto;
-  color: #aaa;
+  width: 100%;
+  color: #CFD8DC;
 }
 
+.inputBox.inputBox.inputBox {
+  border-color: #4A9586;
+  background-color: white;
+  font-size: 16px;
+  height: 34px;
+  width: 250px;
+}
+
+.photo.frame {
+  display: inline-block;
+  margin: 10px;
+  border-style: solid;
+  border-color: #CFD8DC;
+  border-width: 1px;
+  padding: 5px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.space {
+  width: 300px;
+  height: 50px;
+  font-family: Helvetica, sans-serif;
+  font-size: 15px;
+  padding: 5px;
+}
