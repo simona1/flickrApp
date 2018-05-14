@@ -1,11 +1,11 @@
 import React from 'react';
 
 const Photo = props => {
-  const rawTitle = props.photo.title;
+  let fullTitle = (props.photo.title).split(' ');
 
-  let newTitle = rawTitle.substr(0, 30);
-  newTitle = newTitle.substr(0, newTitle.lastIndexOf(' '));
-
+  let displayTitle = (fullTitle.length > 3) ?
+    fullTitle.slice(0, 3).join(' ') :
+    fullTitle;
   return (
     <div className="photo frame">
       <span>
@@ -15,7 +15,7 @@ const Photo = props => {
           alt="{props.photo.title}"
         />
       </span>
-      <span className="space">{newTitle}</span>
+      <span className="space">{displayTitle}</span>
     </div>
   );
 };

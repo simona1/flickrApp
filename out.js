@@ -3883,11 +3883,9 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Photo = function Photo(props) {
-  var rawTitle = props.photo.title;
+  var fullTitle = props.photo.title.split(' ');
 
-  var newTitle = rawTitle.substr(0, 30);
-  newTitle = newTitle.substr(0, newTitle.lastIndexOf(' '));
-
+  var displayTitle = fullTitle.length > 3 ? fullTitle.slice(0, 3).join(' ') : fullTitle;
   return _react2.default.createElement(
     'div',
     { className: 'photo frame' },
@@ -3903,7 +3901,7 @@ var Photo = function Photo(props) {
     _react2.default.createElement(
       'span',
       { className: 'space' },
-      newTitle
+      displayTitle
     )
   );
 };
